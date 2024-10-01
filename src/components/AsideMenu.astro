@@ -1,0 +1,37 @@
+---
+import SliderMenuItem from "./SliderMenuItem.astro";
+import SideMenuCard from "./SideMenuCard.astro";
+import { FaBookmark } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+
+import  { playlists }  from "@/lib/data"
+---
+
+<nav class="flex flex-col  flex-1 gap-2">
+  <div class="bg-zinc-900 rounded-lg p-2">
+    <ul>
+      <SliderMenuItem href="/">
+        <FaHome  />
+        Inicio
+      </SliderMenuItem>
+      <SliderMenuItem>
+        <FaSearch />
+        Buscar
+      </SliderMenuItem>
+    </ul>
+  </div>
+  <div class="bg-zinc-900 rounded-lg p-2 flex-1">
+    <ul>
+        <SliderMenuItem>
+            <FaBookmark />
+            Tu biblioteca
+          </SliderMenuItem>
+          {
+            playlists.map(playlist=>
+              <SideMenuCard playlist={playlist}/>
+            )
+          }
+    </ul>
+  </div>
+</nav>
