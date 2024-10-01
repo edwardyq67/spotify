@@ -11,7 +11,7 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   // Integraciones
   integrations: [tailwind(), react(), netlify()],
-  // Salida del proyecto: estático o servidor
+
   output: "server", // Cambiar a "static" si prefieres salida estática
   adapter: netlify(),
   
@@ -19,7 +19,6 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: ['zustand'] // Asegúrate de que sea en minúsculas
       }
     }
   }
