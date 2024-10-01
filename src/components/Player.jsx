@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { usePlaterStore } from "@/store/musicStore";
 import { Slider } from "./Slider";
 import { FaVolumeHigh } from "react-icons/fa6";
@@ -150,7 +152,7 @@ export function Player() {
   }, [volume])
 
   useEffect(() => {
-    const { song, playlist, songs } = currentMusic;
+    const { song, playlist } = currentMusic;
     if (song) {
       const src = `/music/${playlist?.id}/0${song.id}.mp3`;
       audioRef.current.src = src;

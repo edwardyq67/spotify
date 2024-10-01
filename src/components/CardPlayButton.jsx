@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaPause, FaPlay } from "react-icons/fa";
 import { usePlaterStore } from "@/store/musicStore";
 import axios from "axios";
@@ -20,7 +20,6 @@ function CardPlayButton({ id,size }) {
   
       setIsPlaying(true);
       setCurrentMusic({ songs, playlist, song: songs[0] });
-      console.log({ songs})
     })
     .catch(err => {
       console.error("Error fetching playlist data:", err);
