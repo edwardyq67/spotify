@@ -1,4 +1,4 @@
-import {create} from "Zustand";
+import {create} from "zustand";
 
 export const usePlaterStore=create((set)=>({
     isPlaying:false,

@@ -19,7 +19,7 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: ['Zustand'] // Asegúrate de que sea en minúsculas
+        external: ['zustand'] // Asegúrate de que sea en minúsculas
       }
     }
   }
