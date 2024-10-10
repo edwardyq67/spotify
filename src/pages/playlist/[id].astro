@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { GoChevronLeft } from "react-icons/go";
 import { allPlaylists, songs } from "@/lib/data";
-import MusicTable from "@/components/MusicTable.astro";
+import MusicTable from "@/components/MusicTable";
 import CardPlayButton from "../../components/CardPlayButton";
 
 const { id } = Astro.params;
@@ -51,7 +51,7 @@ const playListSongs = songs.filter(
       </div>
     </header>
     <div class="px-6 pt-5">
-        <CardPlayButton id={id} size={20} client:load/>  
+        <CardPlayButton id={id} size={20} value={3} client:load/>  
     </div>
 
     <div class="reative z-10 px-6 py-3"></div>
@@ -60,7 +60,7 @@ const playListSongs = songs.filter(
     >
     </div>
     <section class="p-2">
-      <MusicTable songs={playListSongs}/>
+      <MusicTable songs={playListSongs} id={id}/>
     </section>
   </div>
 </Layout>

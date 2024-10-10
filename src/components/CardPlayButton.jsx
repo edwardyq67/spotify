@@ -2,7 +2,7 @@
 import { FaPause, FaPlay } from "react-icons/fa";
 import { usePlaterStore } from "@/store/musicStore";
 import axios from "axios";
-function CardPlayButton({ id,size }) {
+function CardPlayButton({ id,size,value }) {
   const { currentMusic, isPlaying, setIsPlaying, setCurrentMusic } =
     usePlaterStore((state) => state);
     // Verifica si la playlist actual es la que se está reproduciendo
@@ -17,9 +17,8 @@ function CardPlayButton({ id,size }) {
     axios.get(`/api/get-info-playlist.json?id=${id}`)
     .then(res => {
       const { songs, playlist } = res.data;
-  
-      setIsPlaying(true);
-      setCurrentMusic({ songs, playlist, song: songs[0] });
+      setIsPlaying(!isPlaying);
+      setCurrentMusic({ songs, playlist, song: songs[value] });
     })
     .catch(err => {
       console.error("Error fetching playlist data:", err);

@@ -13,7 +13,7 @@ const artisitsString = artists.join(", ");
 ---
 <article class="relative group transition-all duration-300  rounded-md  hover:bg-zinc-950">
   <div class="absolute right-4 bottom-[70px] translate-y-4 transition-all duration-500 opacity-0 group-hover:opacity-100  group-hover:translate-y-0 z-10">
-    <CardPlayButton transition:name=`playlist ${id} buttom` id={id} size={15} client:visible />
+    <CardPlayButton transition:name=`playlist ${id} buttom` id={id} size={15} value={0} client:visible />
   </div>
 <a
   href={`/playlist/${id}`}
