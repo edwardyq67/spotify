@@ -76,7 +76,7 @@ const SongControl = ({ audio }) => {
         defaultValue={[0]}
         max={duracion}
         min={0}
-        className="w-[500px]"
+        className="w-[500px] max-w-[60vw]"
         value={[currentTime]}
         onValueChange={(value) => {
           const [newCurrTime] = value;
@@ -145,7 +145,6 @@ export function Player() {
       ? audioRef.current.play()
       : audioRef.current.pause()
   }, [isPlaying])
-
   useEffect(() => {
     audioRef.current.volume = volume
   }, [volume])
@@ -165,22 +164,27 @@ export function Player() {
   };
 
   return (
-    <div className="flex flex-row justify-between w-full  h-full items-center px-4">
-      <div>
+    <div className="flex flex-row gap-5 justify-between w-full  h-full items-center px-4">
+      <div className="lg:block hidden">
         <CurrentSong {...currentMusic.song} />
       </div>
       <div className="grid place-content-center gap-4 flex-1">
         <div className="flex justify-center flex-col items-center gap-y-2">
-          <button className="bg-white rounded-full p-2" onClick={handleClick}>
+          <div className="flex flex-row justify-around w-full">
+             <button className="bg-white rounded-full w-7 h-7 justify-center flex items-center" onClick={handleClick}>
             {isPlaying ? <Pause /> : <Play />}
           </button>
+          <div className="lg:hidden grid items-center h-full">
+        <VolumeControl />
+      </div>
+          </div>
+         
           <SongControl audio={audioRef} />
         </div>
       </div>
-      <div className="grid items-center  h-full">
+      <div className="lg:grid hidden items-center h-full">
         <VolumeControl />
       </div>
-
       <audio ref={audioRef}></audio>
     </div>
   );

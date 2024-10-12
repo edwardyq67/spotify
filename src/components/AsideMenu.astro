@@ -2,7 +2,7 @@
 import SliderMenuItem from "./SliderMenuItem.astro";
 import SideMenuCard from "./SideMenuCard.astro";
 import { FaBookmark } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
+import Busqueda from "./Busqueda"
 import { FaHome } from "react-icons/fa";
 
 import  { playlists }  from "@/lib/data"
@@ -16,8 +16,7 @@ import  { playlists }  from "@/lib/data"
         Inicio
       </SliderMenuItem>
       <SliderMenuItem>
-        <FaSearch />
-        Buscar
+       <Busqueda client:load/>
       </SliderMenuItem>
     </ul>
   </div>

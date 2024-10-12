@@ -16,16 +16,16 @@ const playListSongs = songs.filter(
 <Layout title="Spotify Clone">
   <div
     id="playlist-container"
-    class="relative transition-all duration-1000 bg-zinc-900 overflow-x-hidden pt-10"
+    class="relative transition-all duration-1000 overflow-x-hidden bg-zinc-900 "
     transition:name=`playlist ${id} box`
   >
-  <div class="px-6 pb-5">
+  <div class="py-5">
     <a href="/">
            <GoChevronLeft className="cursor-pointer"  color="white" size={40}/>
     </a>
    
       </div>
-    <header class="flex flex-row gap-8 px-6">
+    <header class="flex flex-col sm:flex-row gap-x-2 gap-y-4 px-4">
       
       <picture class="aspect-square w-52 h-52 flex-none">
         <img
@@ -35,23 +35,23 @@ const playListSongs = songs.filter(
           transition:name=`playlist ${playlists?.id} image`
         />
       </picture>
-      <div class="truncate flex flex-col items-start justify-center gap-1">
+      <div class="whitespace-nowrap flex flex-col items-start justify-center gap-1 px-3" >
         <h4
           transition:name=`playlist ${playlists?.id} h4`
-          class="font-medium text-5xl text-white"
+          class="font-medium text-3xl lg:text-5xl text-white"
         >
           {playlists?.title}
         </h4>
         <span
           transition:name=`playlist ${playlists?.id} span`
-          class="truncate font-extralight text-xl text-gray-400"
+          class="whitespace-nowrap font-extralight text-lg lg:text-xl text-gray-400"
         >
           {playlists?.artists.join(", ")}
         </span>
       </div>
     </header>
     <div class="px-6 pt-5">
-        <CardPlayButton id={id} size={20} value={3} client:load/>  
+        <CardPlayButton id={id} size={20} client:load />  
     </div>
 
     <div class="reative z-10 px-6 py-3"></div>
@@ -59,8 +59,8 @@ const playListSongs = songs.filter(
       class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 -z-10"
     >
     </div>
-    <section class="p-2">
-      <MusicTable songs={playListSongs} id={id}/>
+    <section class="p-2 overflow-x-auto">
+      <MusicTable songs={playListSongs} id={id} client:load/>
     </section>
   </div>
 </Layout>

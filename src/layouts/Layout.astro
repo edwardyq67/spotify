@@ -29,7 +29,7 @@ import { ViewTransitions } from "astro:transitions";
         <slot />
       </main>
       <footer
-        class="[grid-area:player] flex-col flex rounded-lg overflow-y-auto min-h-[100px]"
+        class="[grid-area:player] flex-col flex rounded-lg overflow-y-auto min-h-[80px]"
       >
       <Player client:load transition:name="media-player" transition:persist />
       </footer>
@@ -38,13 +38,26 @@ import { ViewTransitions } from "astro:transitions";
 </html>
 <style>
   #app {
-    display: grid;
+  display: grid;
+  grid-template-areas:
+    "aside main main"
+    "player player player";
+  grid-template-columns: 350px 1fr;
+  grid-template-rows: 1fr auto;
+}
+
+@media (max-width: 1024px) { /* Ajusta el ancho según sea necesario */
+  #app {
     grid-template-areas:
-      "aside main main"
-      "player player player";
-    grid-template-columns: 350px 1fr;
-    grid-template-rows: 1fr auto;
+      "main main"
+      "player player";
+    grid-template-columns: 1fr;
   }
+  
+  aside {
+    display: none; /* Oculta el aside en pantallas pequeñas */
+  }
+}
 </style>
 <style is:global>
   :root {
